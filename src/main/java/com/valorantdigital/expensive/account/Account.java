@@ -1,0 +1,138 @@
+package com.valorantdigital.expensive.account;
+
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
+import java.util.Objects;
+
+@Entity
+@ToString
+@NoArgsConstructor
+@Getter
+@Setter
+@Slf4j
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "account")
+public class Account {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
+
+    @NonNull
+    @Column(name = "email")
+    String email;
+
+//    @NonNull
+//    @Column(name = "handle")
+//    String username;
+
+    @NonNull
+    @Column(name = "first_name")
+    String firstName;
+
+    @NonNull
+    @Column(name = "last_name")
+    String lastName;
+
+    @NonNull
+    @Column(name = "password")
+    String password;
+
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+
+    private void addUser(Account myUser) {
+        myUser.add(myUser);
+    }
+
+    private void add(Account myUser) {
+    }
+
+    private void removeUser(Account myUser) {
+        myUser.remove(myUser);
+
+    }
+
+    private void remove(Account myUser) {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Account myUser = (Account) o;
+        return Objects.equals(firstName, myUser.firstName) && Objects.equals(lastName, myUser.lastName) && email.equals(myUser.email) && Objects.equals(password, myUser.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, email, password);
+    }
+
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("Account{");
+//        sb.append("id=").append(id);
+//        sb.append(", email=").append(email);
+//        sb.append(", username=").append(username);
+//        sb.append(", firstName=").append(firstName);
+//        sb.append(", lastName=").append(lastName);
+//        sb.append(", password=").append(password);
+//        sb.append('}');
+//        return sb.toString();
+//    }
+
+}

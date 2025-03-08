@@ -1,0 +1,445 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+    
+<title>
+
+Dashboard / The Expensive App
+
+</title>
+
+	<!-- html / head / css / begin -->
+    <link th:href="@{/css/theme/sketchy.css}" rel="stylesheet" />
+        
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<!-- html / head / css / end -->
+
+</head>
+<body>
+
+<!-- html / navigation / noauth / begin -->
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="/user/userHome">The Expensive App</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+
+      <ul class="navbar-nav me-auto">
+
+
+        <li class="nav-item">
+
+          <a class="nav-link active" href="/">Home
+
+            <span class="visually-hidden">(current)</span>
+
+          </a>
+
+        </li>
+        
+   <li class="nav-item">
+
+          <a class="nav-link active" href="/auth/login">Login
+
+            <span class="visually-hidden">(current)</span>
+
+          </a>
+
+        </li>
+              
+   <li class="nav-item">
+        
+          <a class="nav-link active" href="/auth/register">Register
+        
+            <span class="visually-hidden">(current)</span>
+            
+          </a>
+          
+        </li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- html / navigation / noauth / end -->
+
+<main class ="container"></main>
+
+<section class="row m-1"></section>
+
+<main class="container">   
+
+    <section class="row m-1">
+
+        <article class="col">
+
+            <p class ="text-center" th:text="${error}"></p>
+
+            <p class ="text-center" th:text="${info}"></p>
+
+        </article>
+
+    </section>
+
+</main>
+
+<div class="container">
+
+    <h1>Payments List</h1>
+
+<section class="row m-1">
+
+    <p th:text="'Welcome ' + ${myUser.firstName} + ' ' + ${myUser.lastName}"/>
+
+</section>
+
+<div class="bs-docs-section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="containers">Containers</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>List groups</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="bs-component">
+              <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Cras justo odio
+                  <span class="badge bg-primary rounded-pill">14</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Dapibus ac facilisis in
+                  <span class="badge bg-primary rounded-pill">2</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Morbi leo risus
+                  <span class="badge bg-primary rounded-pill">1</span>
+                </li>
+              </ul>
+            <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button></div>
+            <div class="bs-component">
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                  Cras justo odio
+                  <span class="badge bg-primary rounded-pill">14</span>
+                </li>
+                <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+                  Dapibus ac facilisis in
+                  <span class="badge bg-primary rounded-pill">2</span>
+                </li>
+                <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                  Morbi leo risus
+                  <span class="badge bg-primary rounded-pill">1</span>
+                </li><li class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
+                  Cras justo odio
+                  <span class="badge bg-primary rounded-pill">5</span>
+                </li>
+                <li class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
+                  Dapibus ac facilisis in
+                  <span class="badge bg-primary rounded-pill">4</span>
+                </li>
+                <li class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">
+                  Morbi leo risus
+                  <span class="badge bg-primary rounded-pill">9</span>
+                </li>
+                <li class="list-group-item list-group-item-light d-flex justify-content-between align-items-center">
+                  Morbi leo risus
+                  <span class="badge bg-primary rounded-pill">8</span>
+                </li>
+                <li class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
+                  Morbi leo risus
+                  <span class="badge bg-primary rounded-pill">0</span>
+                </li>
+              </ul>
+            <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button></div>
+          </div>
+          <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">Cras justo odio</a>
+                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Morbi leo risus</a>
+              </div>
+            <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button></div>
+          </div>
+          <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
+                  </div>
+                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  <small>Donec id elit non mi porta.</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+              </div>
+            <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button></div>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <h2>Cards</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Primary card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Secondary card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Success card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Danger card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Warning card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Info card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card bg-light mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Light card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Dark card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button></div>
+          </div>
+          <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Primary card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card border-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Secondary card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card border-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Success card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card border-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Danger card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card border-warning mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Warning card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card border-info mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Info card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card border-light mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Light card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+              <div class="card border-dark mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Dark card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button></div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="card mb-3">
+                <h3 class="card-header">Card header</h3>
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                  <rect width="100%" height="100%" fill="#868e96"></rect>
+                  <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                </svg>
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+                <div class="card-footer text-muted">
+                  2 days ago
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+            <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button></div>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <h2>Accordions</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Accordion Item #1
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Accordion Item #2
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Accordion Item #3
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button></div>
+          </div>
+        </div>
+
+      </div>
+
+</div>
+
+<!-- html / body / javascript / begin --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script th:src="@{/script.js}"> </script>
+<script th:src="@{/js/script.js}"> </script><!-- html / body / javascript / end -->
+
+</body>
+
+</html>
