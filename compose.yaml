@@ -1,106 +1,62 @@
-
 services:
 
-    the-expensive-app-server:
+  the-expensive-app-server:
+    container_name: the-expensive-app-server
+    image: softwareshinobi/the-expensive-app-server:experimental
+    depends_on:
+      the-expensive-app-database:
+        condition: service_healthy
+    build: 
+      context: apis
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8888:8888
+    environment:
+      DB_HOST: oaxaca.embanet.online
+      DB_PORT: 3306
+      DB_NAME: oaxaca
+      DB_USER: oaxaca
+      DB_PASS: oaxaca
 
-        container_name: the-expensive-app-server
-        
-        image: softwareshinobi/the-expensive-app-server
+  the-expensive-app-database:
+    container_name: the-expensive-app-database
+    image: mariadb:latest
+    volumes:
+      - /tmp/thdde_expensive_app/db:/var/lib/mysql
+      #- ./sql/:/docker-entrypoint-initdb.d/:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: aggiepride
+      MYSQL_DATABASE: the_expensive_app
+      MYSQL_USER: the_expensive_app
+      MYSQL_PASSWORD: the_expensive_app
 
-        depends_on:
+  the-expensive-app-phpmyadmin:
+    container_name: the-expensive-app-phpmyadmin
+    image: beeyev/phpmyadmin-lightweight
+    depends_on:
+      the-expensive-app-database:
+        condition: service_healthy
+    restart: unless-stopped
+    ports:
+      - 3380:80
+    environment:
+      PMA_HOST: the-expensive-app-database
 
-           - the-expensive-app-database
-
-        build: 
-
-            context: .
-
-            dockerfile: Dockerfile
-  
-        restart: unless-stopped
-
-        ports:
-
-            - 8888:8888
-
-        environment:
-
-            DB_HOST: the-expensive-app-database
-
-            DB_PORT: 3306
-            
-            DB_NAME: the_expensive_app
-
-            DB_USER: the_expensive_app
-
-            DB_PASS: the_expensive_app
-
-    the-expensive-app-database:
-
-        container_name: the-expensive-app-database
-
-        image: mariadb
-
-        volumes:
-        
-               - /tmp/volumes/the_expensive_app/mariadb:/var/lib/mysql
-
-               - ./sql/:/docker-entrypoint-initdb.d/:ro
-
-        restart: unless-stopped
-           
-        ports:
-        
-               - 3306:3306
-
-        environment:
-
-            MYSQL_ROOT_PASSWORD: aggiepride
-
-            MYSQL_DATABASE: the_expensive_app
-
-            MYSQL_USER: the_expensive_app
-
-            MYSQL_PASSWORD: the_expensive_app
-
-    the-expensive-app-phpmyadmin:
-
-        container_name: the-expensive-app-phpmyadmin
-
-        image: beeyev/phpmyadmin-lightweight
-
-        depends_on:
-
-           - the-expensive-app-database
-
-        links:
-
-           - the-expensive-app-database
-
-        restart: unless-stopped
-        
-        ports:
-
-            - 3380:80
-
-        environment:
-
-            PMA_HOST: the-expensive-app-database
-
-    the-expensive-app-docs:
-
-        container_name: the-expensive-app
-
-        image: softwareshinobi/the-expensive-app
-
-        build: 
-
-            context: docs
-
-            dockerfile: Dockerfile
-
-        restart: unless-stopped
-
-        ports:
-
-            - "8081:80"
+  the-expensive-app-docs:
+    container_name: the-expensive-app-docs
+    image: softwareshinobi/the-expensive-app-docs:experimental
+    build: 
+      context: docs
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8081:80"

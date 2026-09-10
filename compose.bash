@@ -18,7 +18,7 @@ clear
 
 previousDir=`pwd`
 
-cd src/main/resources/templates/
+cd apis/src/main/resources/templates/
 
 bash cascade.bash
 
